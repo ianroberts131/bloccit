@@ -44,7 +44,7 @@ RSpec.describe PostsController, type: :controller do
     end
     
     it "redirects to the new post" do
-      post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
+      post(:create, {post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}})
       expect(response).to redirect_to Post.last
     end
   end
