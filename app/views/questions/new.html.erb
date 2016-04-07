@@ -9,8 +9,8 @@
       <%= f.label :body %>
       <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter question body" %>
     </div>
-      <%= f.label "Resolved?" %>
-      <%= check_box("question", "resolved") %>
+      <%= f.label :resolved, "Resolved?" %>
+      <%= f.check_box :resolved %>
     <div class="form-group">
       <%= f.submit "Submit", class: 'btn btn-success' %>
     </div>
