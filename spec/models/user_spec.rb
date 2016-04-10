@@ -35,4 +35,22 @@ RSpec.describe User, type: :model do
       expect(user_with_invalid_email).to_not be_valid
     end
   end
+  
+  describe "format name" do
+    let(:user_with_lowercase_first) { User.create!(name: "ian Roberts", email: "ian@bloccit.com", password: "password") }
+    let(:user_with_lowercase_last) { User.create!(name: "Ian roberts", email: "ian@bloccit.com", password: "password") }
+    let(:user_with_proper_format) { User.create!(name: "Ian Roberts", email: "ian@bloccit.com", password: "password") }
+    
+    it "should fix lowercase first name" do
+      expect(user_with_lowercase_first).to have_attributes(name: "Ian Roberts", email: "ian@bloccit.com")
+    end
+    
+    it "should fix lowercase last name" do
+      expect(user_with_lowercase_first).to have_attributes(name: "Ian Roberts", email: "ian@bloccit.com")
+    end
+    
+    it "should handle properly formatted name" do
+      expect(user_with_proper_format).to have_attributes(name: "Ian Roberts", email: "ian@bloccit.com")
+    end
+  end
 end
