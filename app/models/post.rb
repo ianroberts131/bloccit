@@ -43,7 +43,7 @@ class Post < ActiveRecord::Base
   end
   
   def send_new_post_email
-    FavoriteMailer.new_post(self.user, self)
+    FavoriteMailer.new_post(self.user, self).deliver_now
   end
   
 end
