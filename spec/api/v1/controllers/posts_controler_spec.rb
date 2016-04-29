@@ -12,7 +12,7 @@ RSpec.describe Api::V1::PostsController, type: :controller do
     end
     
     it "POST create returns http unauthenticated" do
-      post :create, topic_id: my_topic.id, id: my_post.id, post: {title: "Post Name", body: "Updated post body 20 characters"}
+      post :create, topic_id: my_topic.id, post: {title: "Post Name", body: "Updated post body 20 characters"}
       expect(response).to have_http_status(401)
     end
     
@@ -32,7 +32,7 @@ RSpec.describe Api::V1::PostsController, type: :controller do
     end
     
     it "POST create returns http forbidden" do
-      post :create, topic_id: my_topic.id, id: my_post.id, post: {title: "Post Name", body: "Updated post body 20 characters"}
+      post :create, topic_id: my_topic.id, post: {title: "Post Name", body: "Updated post body 20 characters"}
       expect(response).to have_http_status(403)
     end
     

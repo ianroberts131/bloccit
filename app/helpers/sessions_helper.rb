@@ -8,6 +8,9 @@ module SessionsHelper
   end
   
   def current_user
+    if @current_user
+      return @current_user
+    end
     User.find_by(id: session[:user_id])
   end
 end
